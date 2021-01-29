@@ -15,6 +15,8 @@ npm install
 node server.js
 ```
 
+Third party libraries  used :  <a href="https://www.npmjs.com/package/@y2nk4/currency-converter" target="_blank">@y2nk4/currency-converter</a>
+
 # REST API
 
 
@@ -186,23 +188,64 @@ The REST API to the product app is described below.
         "message": "Product was deleted successfully!"
     }
 
-?numberOfProducts=2
+## Get a product by passing custom currency and increment view-count 
+
+### Request
+
+`GET /products/:id/getProductByCurrency?currency=<CURRENCY>`
+
+     'Accept: application/json' http://localhost:9005/api/products/5/getProductByCurrency?currency=INR
+
+### Response
+ 
+    {
+        "id": 5,
+        "name": "Board",
+        "price": 728.61699,
+        "currency": "INR",
+        "description": "This is a Board",
+        "isDeleted": false,
+        "viewCount": 4,
+        "createdAt": "2021-01-29T14:48:44.212Z",
+        "updatedAt": "2021-01-29T15:38:37.056Z"
+}
 
 
-GET
-localhost:9005/api/products
 
-GET by product id
-localhost:9005/api/products/id
 
-DELETE
-localhost:9005/api/products/id
+### When a list of the most viewed products is requested, the API should return the products with the highest view-counts. By default, the top 5 products will be returned, but the request can also specify a custom number of products to return. Only products with at least 1 view should be included. A specific currency can also be specified in which case all the prices should be returned in that currency.
 
-GET BY MAX VIEW COUNT-CUSTOM LIMIT(numberOfProducts)-DEFAULT LIMIT:5
-localhost:9005/api/products/maxView/findByViewCount?numberOfProducts=2
 
-https://www.npmjs.com/package/@y2nk4/currency-converter
+### Request
 
-localhost:9005/api/products/2/getProductByCurrency?currency=EUR
+`GET /products/maxView/findByViewCount?numberOfProducts=2&currency=INR`
 
- localhost:9005/api/products/maxView/findByViewCount?numberOfProducts=2&currency=INR
+     'Accept: application/json' http://localhost:9005/api/products/maxView/findByViewCount?numberOfProducts=2&currency=INR
+
+
+### Response
+
+    [
+        {
+            "id": 5,
+            "name": "Board",
+            "price": 10,
+            "currency": "USD",
+            "description": "This is a Board",
+            "isDeleted": false,
+            "viewCount": 6,
+            "createdAt": "2021-01-29T14:48:44.212Z",
+            "updatedAt": "2021-01-29T15:41:52.897Z"
+        },
+        {
+            "id": 8,
+            "name": "Test1",
+            "price": 10,
+            "currency": "USD",
+            "description": "Office test1",
+            "isDeleted": false,
+            "viewCount": 2,
+            "createdAt": "2021-01-29T15:46:49.726Z",
+            "updatedAt": "2021-01-29T15:47:13.267Z"
+        }
+    ]
