@@ -1,0 +1,27 @@
+{
+  "name": "product-management",
+  "version": "1.0.0",
+  "description": "Product management",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "sequelize",
+    "rest",
+    "api",
+    "postgresql"
+  ],
+  "author": "Manoj G",
+  "dependencies": {
+    "@y2nk4/currency-converter": "^1.1.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "pg": "^7.18.2",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.22.3"
+  }
+}
