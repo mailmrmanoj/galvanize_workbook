@@ -71,23 +71,26 @@ exports.findOne = (req, res) => {
       Product.update({
         'viewCount': data.viewCount + 1
       }, { where: { id: id } }).then((data) => {
-      })
-    })
+      });
+      Product.findByPk(id)
+        .then(data => {
+          delete data.viewCount;
+          delete data.isDeleted;
+          res.send(data);
+        })
+        .catch(err => {
+          res.status(500).send({
+            message: "Error retrieving Product with id=" + id
+          });
+        })
+    })// send updated record
+
     .catch(err => {
       res.status(500).send({
         message: "Error retrieving Product with id=" + id
       });
     });
-  // send updated record
-  Product.findByPk(id)
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message: "Error retrieving Product with id=" + id
-      });
-    });
+
 };
 
 // Delete a Product with the specified id in the request
