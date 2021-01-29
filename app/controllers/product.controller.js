@@ -71,6 +71,7 @@ exports.findOne = (req, res) => {
       Product.update({
         'viewCount': data.viewCount + 1
       }, { where: { id: id } }).then((data) => {
+        console.log(data);
       });
       Product.findByPk(id)
         .then(data => {
@@ -80,14 +81,14 @@ exports.findOne = (req, res) => {
         })
         .catch(err => {
           res.status(500).send({
-            message: "Error retrieving Product with id=" + id
+            message: "Error retrieving Product with id=" + id + 'Error' + err
           });
         })
     })// send updated record
 
     .catch(err => {
       res.status(500).send({
-        message: "Error retrieving Product with id=" + id
+        message: "Error retrieving Product with id=" + id + 'Error' + err
       });
     });
 
@@ -115,7 +116,7 @@ exports.delete = (req, res) => {
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete Product with id=" + id
+        message: "Could not delete Product with id=" + id + 'Error' + err
       });
     });
 };
@@ -157,7 +158,7 @@ exports.findAllByViewCount = (req, res) => {
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving products"
+          err.message || "Some error occurred while retrieving products" + 'Error' + err
       });
     });
 };
@@ -176,11 +177,12 @@ exports.findOneByCustomCurrency = (req, res) => {
       Product.update({
         'viewCount': data.viewCount + 1
       }, { where: { id: id } }).then((data) => {
-      })
+        console.log(data);
+      });
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error retrieving Product with id=" + id
+        message: "Error retrieving Product with id=" + id + 'Error:' + err
       });
     });
   // send updated record
@@ -195,7 +197,7 @@ exports.findOneByCustomCurrency = (req, res) => {
           res.send(data);
         }).catch(err => {
           res.status(500).send({
-            message: "Error retrieving  currrency details"
+            message: "Error retrieving  currrency details." + 'Error:' + err
           })
         });
       } else {
@@ -204,7 +206,7 @@ exports.findOneByCustomCurrency = (req, res) => {
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error retrieving Product with id=" + id
+        message: "Error retrieving Product with id=" + id + 'Error:' + err
       });
     });
 };
