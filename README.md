@@ -249,3 +249,6 @@ The REST API to the product app is described below.
             "updatedAt": "2021-01-29T15:47:13.267Z"
         }
     ]
+
+
+  ![alt text](screenshot.png)
