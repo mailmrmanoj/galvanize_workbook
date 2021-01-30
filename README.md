@@ -14,14 +14,20 @@ npm install
 ```
 node server.js
 ```
+### 
 
-ORM :  [Sequelize] (https://sequelize.org/)
 
-Database : [PgAdmin] (https://www.pgadmin.org/)
+### Code analyser : [ESlint] (https://eslint.org/)
 
-API testing tool : [Postman] (https://www.postman.com/)
+### ORM :  [Sequelize] (https://sequelize.org/)
 
-Third party libraries  used :  <a href="https://www.npmjs.com/package/@y2nk4/currency-converter" target="_blank">@y2nk4/currency-converter</a>
+### Database : [PgAdmin] (https://www.pgadmin.org/)
+
+### API testing tool : [Postman] (https://www.postman.com/)
+
+### Test : [Jest] (https://jestjs.io/)
+
+### Third party libraries  used :  <a href="https://www.npmjs.com/package/@y2nk4/currency-converter" target="_blank">@y2nk4/currency-converter</a>
 
 # REST API
 
