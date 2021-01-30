@@ -30,7 +30,7 @@ node server.js
 
 #### Third party libraries  used :  <a href="https://www.npmjs.com/package/@y2nk4/currency-converter" target="_blank">@y2nk4/currency-converter</a>
 
-#### SQL Schema :[Product](Product.sql)
+#### SQL Schema :[Product.sql](product.sql)
 
 # REST API
 
