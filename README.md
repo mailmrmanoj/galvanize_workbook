@@ -25,7 +25,7 @@ node server.js
 
 ### API testing tool : [Postman](https://www.postman.com/)
 
-### Test : [Jest](https://jestjs.io/)
+### Unit Test : [Jest](https://jestjs.io/)
 
 ### Third party libraries  used :  <a href="https://www.npmjs.com/package/@y2nk4/currency-converter" target="_blank">@y2nk4/currency-converter</a>
 
